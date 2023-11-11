@@ -9,8 +9,8 @@ def main():
     st.set_page_config(page_title="Invoice Data Extraction Bot")
     # Sidebar to capture the OpenAi API key
     st.sidebar.title("😎🗝️")
-    st.session_state['API_Key'] = st.sidebar.text_input("Enter your OpenAI API key?", type="password")
-    st.title("Invoice Extraction Bot...💁 ")
+    st.session_state['API_Key'] = st.sidebar.text_input("Enter your OpenAI API key", type="password")
+    st.title("Invoice Data Extraction Bot...💁 ")
     st.subheader("I can help you in extracting invoice data")
 
 
