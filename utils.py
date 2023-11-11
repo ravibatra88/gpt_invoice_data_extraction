@@ -3,7 +3,7 @@ from pypdf import PdfReader
 # from langchain.llms.openai import OpenAI
 import pandas as pd
 import re
-import replicate
+#import replicate
 from langchain.prompts import PromptTemplate
 import os
 # from dotenv import load_dotenv,find_dotenv
