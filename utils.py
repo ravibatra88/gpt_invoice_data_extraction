@@ -63,7 +63,7 @@ def create_docs(user_pdf_list,OpenAI_key):
     
     df = pd.DataFrame({'Invoice no.': pd.Series(dtype='str'),
                    'Description': pd.Series(dtype='str'),
-                   'Quantity'': pd.Series(dtype='str'),
+                   'Quantity': pd.Series(dtype='str'),
                    'Date': pd.Series(dtype='str'),
 	                'Unit price': pd.Series(dtype='str'),
                    'Amount': pd.Series(dtype='int'),
