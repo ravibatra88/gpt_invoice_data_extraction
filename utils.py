@@ -25,17 +25,17 @@ def get_pdf_text(pdf_doc):
 #Function to extract data from text
 def extracted_data(pages_data,OpenAI_key):
 
+    template = """Extract all the following values : invoice no., Description, Quantity, date,
+        Unit price , Amount, Total, email, phone number and address from this data: {pages}
+
+        Expected output: make sure output is in json format with curly braces {{'Invoice no.': '1001329','Description': 'Office Chair,Table','Quantity': '2,1','Date': '5/4/2023','Unit price': '1100.00, 400.00','Amount': '2200.00, 400.00','Total': '2600.00','Email': 'ravibatra@gmail.com','Phone number': '9999999999','Address': 'Bengalore, India'}}
+        """
+
     # template = """Extract all the following values : invoice no., Description, Quantity, date,
     #     Unit price , Amount, Total, email, phone number and address from this data: {pages}
     #
-    #     Expected output: make sure output is in json format with curly braces {{'Invoice no.': '1001329','Description': 'Office Chair,Table','Quantity': '2,1','Date': '5/4/2023','Unit price': '1100.00, 400.00','Amount': '2200.00, 400.00','Total': '2600.00','Email': 'ravibatra@gmail.com','Phone number': '9999999999','Address': 'Bengalore, India'}}
+    #     Expected output: make sure output is in json format with curly braces {{'Invoice no.': '1001329','Description': 'Office Chair,Table','QTY/HR Rate': '2,1','Date': '5/4/2023','Unit cost': '1100.00, 400.00','Amount': '2200.00, 400.00','Total': '2600.00','Email': 'ravibatra@gmail.com','Phone number': '9999999999','Address': 'Bengalore, India'}}
     #     """
-
-    template = """Extract all the following values : invoice no., Description, Quantity, date, 
-        Unit price , Amount, Total, email, phone number and address from this data: {pages}
-
-        Expected output: make sure output is in json format with curly braces {{'Invoice no.': '1001329','Description': 'Office Chair,Table','QTY/HR Rate': '2,1','Date': '5/4/2023','Unit cost': '1100.00, 400.00','Amount': '2200.00, 400.00','Total': '2600.00','Email': 'ravibatra@gmail.com','Phone number': '9999999999','Address': 'Bengalore, India'}}
-        """
     prompt_template = PromptTemplate(input_variables=["pages"], template=template)
 
     llm = OpenAI(temperature=.1, openai_api_key=OpenAI_key)
@@ -63,9 +63,9 @@ def create_docs(user_pdf_list,OpenAI_key):
     
     df = pd.DataFrame({'Invoice no.': pd.Series(dtype='str'),
                    'Description': pd.Series(dtype='str'),
-                   'QTY/HR Rate': pd.Series(dtype='str'),
+                   'Quantity'': pd.Series(dtype='str'),
                    'Date': pd.Series(dtype='str'),
-	                'Unit cost': pd.Series(dtype='str'),
+	                'Unit price': pd.Series(dtype='str'),
                    'Amount': pd.Series(dtype='int'),
                    'Total': pd.Series(dtype='str'),
                    'Email': pd.Series(dtype='str'),
