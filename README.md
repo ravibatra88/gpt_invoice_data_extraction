@@ -4,3 +4,6 @@ This app uses ChatGPT API to help with data extraction and organization from inv
 Demo video:
 https://youtu.be/2-tNCAnzHvQ
 
+Hosted app:
+https://gptinvoicedataextraction.streamlit.app/
+
